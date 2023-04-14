@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Raghavendra/IdeaProjects/EPAM_FINAL_PROJECT/src/test/java/org/example/LinkedinTesting.java">
+        <parameter name="browser" value="edge"></parameter>
+        <parameter name="url" value="https://www.linkedin.com/home"></parameter>
+        <classes>
+            <class name="org.example.LinkedinTesting">
+                <methods>
+                    <include name="accessLogin"/>
+                    <include name="wrongLogin"/>
+                    <include name="CorrectLogin"/>
+                    <include name="searchTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
