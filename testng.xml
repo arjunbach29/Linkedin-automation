@@ -4,14 +4,15 @@
     <test verbose="2" preserve-order="true"
           name="C:/Users/Raghavendra/IdeaProjects/EPAM_FINAL_PROJECT/src/test/java/org/example/LinkedinTesting.java">
         <parameter name="browser" value="edge"></parameter>
-        <parameter name="url" value="https://www.linkedin.com/home"></parameter>
+        <parameter name="url" value="https://www.linkedin.com/login"></parameter>
         <classes>
             <class name="org.example.LinkedinTesting">
                 <methods>
                     <include name="accessLogin"/>
                     <include name="wrongLogin"/>
                     <include name="CorrectLogin"/>
-                    <include name="searchTest"/>
+
+
                 </methods>
             </class>
         </classes>

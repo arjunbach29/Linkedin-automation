@@ -5,6 +5,7 @@ import io.opentelemetry.sdk.resources.ResourceBuilder;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +16,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.util.ResourceBundle;
+import java.util.List;
 
 
 public class LinkedinTesting {
@@ -24,7 +27,7 @@ public class LinkedinTesting {
 
     @BeforeClass
     @Parameters({"browser", "url"})
-    public void UdemyTest(String browser, String Link) {
+    public void LinkedinTest(String browser, String Link) {
 
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -44,71 +47,61 @@ public class LinkedinTesting {
 
         String email = " ";
         String password = "";
-        WebElement e = driver.findElement(By.id("session_key"));
+        WebElement e = driver.findElement(By.id("username"));
 
-        WebElement p = driver.findElement(By.id("session_password"));
+        WebElement p = driver.findElement(By.id("password"));
         e.sendKeys(email);
-        Thread.sleep(2000);
+        Thread.sleep(20);
         p.sendKeys(password);
-        Thread.sleep(2000);
+        Thread.sleep(20);
         driver.findElement(By.xpath("//button[contains(text(),'Sign in')]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(20);
 
     }
     @Test
     void wrongLogin() throws InterruptedException {
-        WebElement e = driver.findElement(By.id("session_key"));
+        WebElement e = driver.findElement(By.id("username"));
 
-        WebElement p = driver.findElement(By.id("session_password"));
+        WebElement p = driver.findElement(By.id("password"));
 
         e.sendKeys("raghav@gmail.com");
-        Thread.sleep(2000);
+        Thread.sleep(200);
         p.sendKeys("dxfdx");
-        Thread.sleep(2000);
+        Thread.sleep(20);
         driver.findElement(By.xpath("//button[contains(text(),'Sign in')]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(20);
         e.clear();
-        Thread.sleep(2000);
+        Thread.sleep(20);
         p.clear();
-        Thread.sleep(2000);
+        Thread.sleep(20);
 
 
     }
 
     @Test
     void CorrectLogin() throws InterruptedException {
-        WebElement e = driver.findElement(By.id("session_key"));
+        WebElement e = driver.findElement(By.id("username"));
 
-        WebElement p = driver.findElement(By.id("session_password"));
+        WebElement p = driver.findElement(By.id("password"));
 
         ResourceBundle r = ResourceBundle.getBundle("config");
         String a = r.getString("email");
         String b = r.getString("password");
 
         e.sendKeys(a);
-        Thread.sleep(2000);
+        Thread.sleep(20);
         p.sendKeys(b);
-        Thread.sleep(2000);
+        Thread.sleep(20);
         driver.findElement(By.xpath("//button[contains(text(),'Sign in')]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(20);
     }
 
 
-    @Test
-    void searchTest() throws InterruptedException {
-        WebElement s = driver.findElement(By.xpath("//input[@placeholder='Search']"));
-        s.sendKeys("yashwanth");
-        s.click();
 
-        Thread.sleep(2000);
-
-
-    }
-
-    @AfterClass
-    void closeDriver(){
-        driver.close();
-    }
+//    @AfterClass
+//    void closeDriver(){
+//        driver.close();
+//    }
 
 
 
